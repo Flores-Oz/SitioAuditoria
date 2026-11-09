@@ -1,0 +1,13 @@
+﻿SQL,Evidencia,Riesgo,Prueba referenciada,Papel PT-01 a PT-10,Hallazgo relacionado,Puntaje R,Puntaje H,Estado del vínculo
+SQL-01,E-01,R-01,T-01,PT-01,Sin H-01 a H-05,16,,Temático; no equivale a ejecución ni aprobación del programa
+SQL-02,E-01,R-02,T-02,PT-01,Sin H-01 a H-05,16,,Temático; no equivale a ejecución ni aprobación del programa
+SQL-03,E-02,R-03,T-03,PT-02,H-01,20,20,Temático; no equivale a ejecución ni aprobación del programa
+SQL-04,E-03,R-07,T-07,PT-03,Sin H-01 a H-05,20,,Temático; no equivale a ejecución ni aprobación del programa
+SQL-05,E-05,R-13,T-13,PT-05,H-05,20,12,Temático; no equivale a ejecución ni aprobación del programa
+SQL-06,E-06,R-05,T-05,PT-06,H-02,20,16,Temático; no equivale a ejecución ni aprobación del programa
+SQL-07,E-07,R-11,T-11,PT-07,H-03,16,15,Temático; no equivale a ejecución ni aprobación del programa
+SQL-08,E-08,R-08,T-08,PT-08,H-04,20,20,Temático; no equivale a ejecución ni aprobación del programa
+SQL-09,E-04,R-07; R-12,T-07; T-12,PT-04,Sin H-01 a H-05,Múltiples,,Temático; no equivale a ejecución ni aprobación del programa
+SQL-10,E-05,R-13,T-13,PT-05,H-05,20,12,Temático; no equivale a ejecución ni aprobación del programa
+SQL-11,E-02,R-03,T-03,PT-02,H-01,20,20,Temático; no equivale a ejecución ni aprobación del programa
+SQL-12,E-08,R-08,T-08,PT-08,H-04,20,20,Temático; no equivale a ejecución ni aprobación del programa

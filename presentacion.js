@@ -5,11 +5,13 @@
   const E=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const riskTitles={'R-03':'Acceso privilegiado sin MFA','R-08':'Restauración de respaldos','R-07':'Clasificación de datos personales','R-13':'Integridad de órdenes','R-05':'Gestión de cambios'};
-  const categories={'01_Informe':'Informe y planificación','02_Matrices':'Matrices de auditoría','03_Evidencias':'Evidencias y papeles de trabajo','04_SQL':'Laboratorio SQL','07_UsodeIA':'Referencias y uso de IA'};
+  const categories={'01_Informe':'Informe y planificación','02_Matrices':'Matrices de auditoría','03_Evidencias':'Evidencias y papeles de trabajo','04_SQL':'Laboratorio SQL','05_PlanAccion':'Plan de acción y presupuesto','07_UsodeIA':'Referencias y uso de IA','08_Revision':'Revisión histórica · 07/11/2026'};
   let current=0,step=0,notesOpen=false,presentation=false,duration=30;
-  let libraryTab='documentos',riskFilter='all',query='',toastTimeout;
+  let libraryTab='documentos',riskFilter='all',query='',toastTimeout,showHistory=false;
   let seconds=0,startedAt=0,running=false,timerInterval;
   const dialogs=['outline-dialog','library-dialog','detail-dialog'];
+  $('slide-total').textContent='/ '+S.length;
+  $('outline-footnote').textContent=`${S.length} diapositivas · Guía de 30 minutos · Actualizada el 08/11/2026.`;
   try{duration=Number(localStorage.getItem('rednova-duration'))||30;}catch{}
   if(![10,20,30,40].includes(duration))duration=30;
   $('duration').value=String(duration);
@@ -17,6 +19,7 @@
   const elements=S.map(s=>$(s.id));
   const counts=elements.map(el=>Math.max(0,...Array.from(el.querySelectorAll('[data-step]'),n=>Number(n.dataset.step))));
   elements.forEach(el=>el.querySelectorAll('.action-tile').forEach((button,i)=>{button.dataset.action=String(i);}));
+  document.querySelectorAll('.finding-line').forEach(button=>{button.dataset.finding=button.className.match(/finding-(H-\d{2})/)[1];});
 
   function renderOutline(){
     let previousSection='';
@@ -90,13 +93,13 @@
   }
   function showSql(id){
     const s=D.sql.find(s=>s.id===id);if(!s)return;
-    detail(`${s.id} · ${s.evidence} · DATOS SINTÉTICOS`,`<h2>${E(s.objective)}</h2><span class="eyebrow">RESULTADO DOCUMENTADO EN LA MATRIZ</span><p>${E(s.result)}</p><div class="notice"><strong>Límite:</strong> ${E(s.limit)}</div><div class="copy-row"><span class="eyebrow">CONSULTA DEL EXPEDIENTE</span><button class="copy-button" id="copy-query">Copiar consulta</button></div><pre><code>${E(s.query)}</code></pre><p class="detail-source">La página muestra la consulta y el resultado documentado; no ejecuta SQL ni se conecta a una base de datos.</p>`);
+    detail(`${s.id} · ${s.evidence} · DATOS SINTÉTICOS`,`<h2>${E(s.objective)}</h2><span class="eyebrow">RESULTADO DOCUMENTADO EN LA MATRIZ</span><p>${E(s.result)}</p><div class="trace-links"><span>${E(s.risk)}</span> → <span>${E(s.test)}</span> → <span>${E(s.evidence)}</span> → <span>${E(s.paper)}</span>${s.finding?` → <button data-finding="${E(s.finding)}">${E(s.finding)} ↗</button>`:''}</div><p class="detail-source">${E(s.trace_status)}. Fuente: ${E(s.source)} / Trazabilidad.</p><div class="notice"><strong>Límite:</strong> ${E(s.limit)}</div><div class="copy-row"><span class="eyebrow">CONSULTA DEL EXPEDIENTE</span><button class="copy-button" id="copy-query">Copiar consulta</button></div><pre><code>${E(s.query)}</code></pre><p class="detail-source">El PDF y la matriz reportan ejecución anterior. La revisión actual cotejó el texto de las 12 consultas, sin reejecutar SQL Server. La página no ejecuta SQL.</p>`);
     $('copy-query').onclick=async()=>{try{if(!navigator.clipboard)throw new Error('clipboard');await navigator.clipboard.writeText(s.query);$('copy-query').textContent='Copiada ✓';}catch{const range=document.createRange();range.selectNodeContents($('detail-content').querySelector('code'));window.getSelection().removeAllRanges();window.getSelection().addRange(range);$('copy-query').textContent='Seleccionada: Ctrl+C';}};
   }
   function showEvidence(id){
     const e=D.evidence.find(e=>e.id===id);if(!e)return;
     const queries=D.sql.filter(s=>s.evidence===id).map(s=>s.id);
-    detail(`${id} · INVENTARIO PRELIMINAR`,`<h2>${E(e.name)}</h2><p>${E(e.description)}</p><span class="eyebrow">PROCEDENCIA REGISTRADA</span><p>${E(e.source)}</p><span class="eyebrow">RELACIÓN CON EL LABORATORIO SQL</span><p>${queries.length?E(queries.join(' · ')):'Sin vínculo a las 12 consultas; revisar el expediente general.'}</p><div class="notice">${E(e.status)}. No consta recepción del original. Custodio, adquisición, ubicación y hash de la fuente original siguen pendientes.</div>`);
+    detail(`${id} · INVENTARIO PRELIMINAR`,`<h2>${E(e.name)}</h2><p>${E(e.description)}</p><span class="eyebrow">PROCEDENCIA REGISTRADA</span><p>${E(e.source)}</p><div class="trace-links"><span>${E(e.risk)}</span> → <span>${E(e.test)}</span> → <span>${E(e.paper)}</span></div><p class="detail-source">Vínculos de las hojas PT actualizadas; el programa T-01 a T-15 ya está documentado, sin ejecución acreditada.</p><span class="eyebrow">RELACIÓN CON EL LABORATORIO SQL</span><p>${queries.length?E(queries.join(' · ')):'Sin vínculo a las 12 consultas; revisar el expediente general.'}</p><p>${E(e.support)}</p><div class="notice">${E(e.status)}. No consta recepción del original. Custodio, adquisición, ubicación y hash de la fuente original siguen pendientes.</div>`);
   }
   function showEvent(index){
     const t=D.timeline[index];if(!t)return;
@@ -105,6 +108,18 @@
   function showAction(index){
     const a=window.ACCIONES[index];if(!a)return;
     detail(`${a.id} · PROPUESTA POR VALIDAR`,`<h2>${E(a.title)}</h2><p>${E(a.action)}</p><span class="eyebrow">RESPONSABLE PROPUESTO</span><p>${E(a.owner)}</p><span class="eyebrow">PRUEBA DE CIERRE PROPUESTA</span><p>${E(a.verification)}</p><span class="eyebrow">KPI PROPUESTO</span><p>${E(a.kpi)}</p><div class="notice">Fechas, presupuesto y criterios de aceptación deben acordarse con el equipo. Esta propuesta no representa aprobación ni ejecución.</div>`);
+  }
+  function showFinding(id){
+    const f=D.findings.find(f=>f.id===id);if(!f)return;
+    detail(`${f.id} · BORRADOR DEL PASO 10`,`<h2>${E(f.title)}</h2><div class="detail-tags"><span>Hallazgo: ${f.score}/25</span><span>${E(f.risk)}: ${f.risk_score}/25</span><span>${E(f.status)}</span></div><p>${E(f.condition)}</p><div class="notice">${f.score!==f.risk_score?'El puntaje difiere del riesgo relacionado; debe conciliarse o justificarse. ':''}El estado del documento es “${E(f.status_source)}”. Su sustento es el resumen académico, no un incumplimiento productivo confirmado.</div><span class="eyebrow">CRITERIO PROPUESTO EN EL DOCUMENTO</span><p>${E(f.criterion)}</p><span class="eyebrow">EVIDENCIA Y TRAZABILIDAD</span><p>${E(f.evidence_text)}</p><div class="trace-links"><button data-risk="${E(f.risk)}">${E(f.risk)} ↗</button> → <span>${E(f.test)}</span> → <button data-evidence="${E(f.evidence)}">${E(f.evidence)} ↗</button> → <span>${E(f.paper)}</span></div><p class="detail-source">${E(f.mapping_status)}. ${f.sql.map(s=>`<button class="copy-button" data-sql="${E(s)}">${E(s)} ↗</button>`).join(' ')}</p><span class="eyebrow">QUÉ FALTA PARA CERRAR</span><p>${E(f.additional)}</p><span class="eyebrow">RECOMENDACIÓN DEL PASO 10</span><p>${E(f.recommendation)}</p><p class="detail-source">Fuente actual: ${E(f.source)}, ${E(f.id)}, párrafo ${f.paragraph}. La versión Paso_10 se conserva entre los documentos anteriores.</p>`);
+  }
+  function showPlan(id){
+    const a=D.plan.find(a=>a.id===id);if(!a)return;
+    detail(`${a.id} · PLAN PROPUESTO · ${a.horizon}`,`<h2>${E(a.action)}</h2><div class="detail-tags"><span>${E(a.finding)}</span><span>Q${a.budget.toLocaleString('es-GT')}</span><span>${E(a.release)}</span></div><p>${E(a.risk)} → ${E(a.test)} → ${E(a.evidence)}</p><span class="eyebrow">RESPONSABLE OPERATIVO</span><p>${E(a.owner)}</p><span class="eyebrow">DEPENDENCIA Y AUTORIZACIÓN</span><p>${E(a.dependency)}</p><span class="eyebrow">KPI PROPUESTO</span><p>${E(a.kpi)}</p><span class="eyebrow">EVIDENCIA DE CIERRE</span><p>${E(a.verification)}</p><p>Verificador: ${E(a.verifier)}</p><div class="notice">${E(a.residual)} Costos académicos; aprobación del comité y ejecución pendientes. “Firme” es una categoría de la propuesta.</div><p class="detail-source">Fuente: 05_PlanAccion/Plan_Accion.xlsx · Plan de acción.</p>`);
+  }
+  function showReview(id){
+    const r=D.review.issues.find(r=>r.id===id);if(!r)return;
+    detail(`${r.id} · INCIDENCIA DOCUMENTAL · ${r.priority.toUpperCase()}`,`<h2>${E(r.title)}</h2><div class="update-note"><strong>Actualización del 08/11:</strong><br>${E(r.current_note)}</div><span class="eyebrow">UBICACIÓN REVISADA EL 07/11</span><p>${E(r.location)}</p><span class="eyebrow">OBSERVACIÓN HISTÓRICA DEL 07/11</span><p>${E(r.detail)}</p><div class="notice"><strong>Acción recomendada entonces:</strong> ${E(r.action)}</div><p class="detail-source">Revisión histórica del 07/11 con nota actual. No se declara cierre integral ni aprobación del equipo.</p>`);
   }
   function filteredRisks(){
     let risks=[...D.risks];
@@ -119,8 +134,15 @@
     $('library-content').setAttribute('aria-labelledby','tab-'+libraryTab);
     let html='',n=0;
     if(libraryTab==='documentos'){
-      const files=D.files.filter(f=>norm(f.name+' '+categories[f.category]+' '+f.type).includes(norm(query)));n=files.length;
-      html='<div class="document-grid">'+files.map(f=>`<a class="document-link" href="${E(encodeURI(f.url))}" target="_blank" rel="noopener" ${f.type==='PDF'?'':'download'}><span>${E(f.type)}</span><div><strong>${E(f.name)}</strong><small>${E(categories[f.category])} · ${Math.ceil(f.size/1024)} KB</small></div><span aria-hidden="true">${f.type==='PDF'?'↗':'↓'}</span></a>`).join('')+'</div>';
+      const files=D.files.filter(f=>(showHistory||f.version!=='Anterior')&&norm(f.name+' '+categories[f.category]+' '+f.type+' '+f.role).includes(norm(query)));n=files.length;
+      html=`<div class="library-filters"><button data-history aria-pressed="${showHistory}">${showHistory?'Ocultar':'Mostrar'} ${D.files.filter(f=>f.version==='Anterior').length} versiones anteriores</button></div>`;
+      html+='<div class="document-grid">'+files.map(f=>`<a class="document-link" href="${E(encodeURI(f.url))}" target="_blank" rel="noopener" ${['PDF','PNG'].includes(f.type)?'':'download'}><span>${E(f.type)}</span><div><strong>${E(f.name)}</strong><small>${E(f.version)} · ${E(categories[f.category])} · ${Math.ceil(f.size/1024)} KB</small>${f.role?`<small>${E(f.role)}</small>`:''}</div><span aria-hidden="true">${['PDF','PNG'].includes(f.type)?'↗':'↓'}</span></a>`).join('')+'</div>';
+    }else if(libraryTab==='ia'){
+      const rows=D.ai.records.filter(r=>norm(Object.values(r).join(' ')).includes(norm(query)));n=rows.length;
+      html=`<div class="notice"><strong>Oscar · Integrante 2 / analista técnico</strong><br>${E(D.ai.status)}. Seis usos de Codex en revisión y presentación de los Pasos 3, 7, 8 y 10. El uso de IA en la elaboración original está por precisar.</div><div class="ai-downloads"><a href="${E(D.ai.document)}" download>Descargar explicación Word ↓</a><a href="${E(D.ai.register)}" download>Descargar registro CSV ↓</a></div>`+rows.map(r=>`<article class="ai-register-card"><small>${E(r.id)} · ${E(r.date)} · ${E(r.tool)}</small><h3>${E(r.purpose)}</h3><p><strong>Solicitud resumida:</strong> ${E(r.request)}</p><p><strong>Resultado utilizado:</strong> ${E(r.result)}</p><p><strong>Validación y pendientes:</strong> ${E(r.validation)}</p><small>${E(r.basis)}<br>Fuente: ${E(r.source)}</small></article>`).join('');
+    }else if(libraryTab==='acciones'){
+      const rows=D.plan.filter(a=>norm(Object.values(a).join(' ')).includes(norm(query)));n=rows.length;
+      html='<div class="notice">12 acciones propuestas, no ejecutadas. Q350,000 = Q275,000 firmes en la propuesta + Q75,000 condicionados. Costos académicos; comité pendiente.</div>'+rows.map(a=>`<button class="support-row" data-plan="${a.id}"><span class="support-id">${a.id}<small>${E(a.horizon)}</small></span><div><strong>${E(a.action)}</strong><small>${E(a.owner)} · ${E(a.release)}</small></div><span class="support-score"><small>Q${a.budget.toLocaleString('es-GT')}</small>↗</span></button>`).join('');
     }else if(libraryTab==='riesgos'){
       const risks=filteredRisks();n=risks.length;
       html=`<div class="library-filters">${[['all','Todos'],['top','Top 5'],['critical','Críticos'],['high','Altos']].map(([id,title])=>`<button data-risk-filter="${id}" class="${riskFilter===id?'active':''}" aria-pressed="${riskFilter===id}">${title}</button>`).join('')}</div>`;
@@ -132,6 +154,15 @@
     }else if(libraryTab==='evidencias'){
       const rows=D.evidence.filter(e=>norm(e.id+' '+e.name+' '+e.description).includes(norm(query)));n=rows.length;
       html=rows.map(e=>`<button class="support-row" data-evidence="${E(e.id)}"><span class="support-id">${E(e.id)}</span><div><strong>${E(e.name)}</strong><small>Original pendiente · ${E(e.status)}</small></div><span class="support-score">↗</span></button>`).join('');
+    }else if(libraryTab==='hallazgos'){
+      const rows=D.findings.filter(f=>norm(f.id+' '+f.title+' '+f.risk+' '+f.status).includes(norm(query)));n=rows.length;
+      html='<div class="notice">Cinco observaciones del borrador del Paso 10. Son distintas del Top 5 de riesgos y no acreditan incumplimientos productivos.</div>'+rows.map(f=>`<button class="support-row" data-finding="${E(f.id)}"><span class="support-id">${E(f.id)}</span><div><strong>${E(f.title)}</strong><small>${E(f.status)} · ${E(f.risk)}: ${f.risk_score}/25${f.score!==f.risk_score?' · Diferencia por conciliar':''}</small></div><span class="support-score">${f.score}<small>PASO 10</small></span></button>`).join('');
+    }else if(libraryTab==='revision'){
+      const rows=D.review.issues.filter(r=>norm(r.id+' '+r.title+' '+r.detail+' '+r.location).includes(norm(query)));n=rows.length;
+      html=`<div class="notice"><strong>Revisión histórica · 07/11/2026</strong><br>Las notas del 08/11 identifican avances en programa T, puntajes, plan e IA. Abrir cada incidencia para consultar su estado actualizado.</div>`+rows.map(r=>`<button class="support-row" data-review="${E(r.id)}"><span class="support-id">${E(r.id)}</span><div><strong>${E(r.title)}</strong><small>${E(r.current_note)}</small></div><span class="support-score"><small>${E(r.priority.toUpperCase())}</small>↗</span></button>`).join('');
+    }else if(libraryTab==='referencias'){
+      const rows=D.references.filter(r=>norm(r.title+' '+r.version+' '+r.scope).includes(norm(query)));n=rows.length;
+      html=rows.map(r=>`<article class="reference-row"><h3>${E(r.title)}</h3><p>${E(r.version)} · ${E(r.status)}</p><p>${E(r.scope)}</p><div>${r.urls.filter(u=>u.startsWith('https://')).map((u,i)=>`<a href="${E(u)}" target="_blank" rel="noopener">Fuente oficial ${r.urls.length>1?i+1:''} ↗</a>`).join(' ')}</div></article>`).join('');
     }else{
       const rows=D.timeline.map((t,i)=>({...t,index:i})).filter(t=>norm(t.date+' '+t.event+' '+t.source).includes(norm(query)));n=rows.length;
       html=rows.map(t=>`<button class="support-row" data-event="${t.index}"><span class="support-id">${E(t.date.split(' ')[1])}<small>${E(t.date.split(' ')[0].slice(0,5))}</small></span><div><strong>${E(t.event)}</strong><small>${E(t.limit)}</small></div><span class="support-score">↗</span></button>`).join('');
@@ -160,16 +191,20 @@
   document.addEventListener('click',event=>{
     const b=event.target.closest('button,a');if(!b)return;
     if(b.dataset.close){$(b.dataset.close).close();return;}
+    if(b.hasAttribute('data-history')){showHistory=!showHistory;renderLibrary();return;}
     if(b.dataset.jump!==undefined){if($('outline-dialog').open)$('outline-dialog').close();go(Number(b.dataset.jump));return;}
     if(b.classList.contains('brand')){event.preventDefault();go(0);return;}
     if(b.dataset.library){openLibrary(b.dataset.library);return;}
     if(b.dataset.tab){libraryTab=b.dataset.tab;riskFilter='all';query='';$('library-search').value='';renderLibrary();return;}
+    if(b.dataset.plan){showPlan(b.dataset.plan);return;}
     if(b.dataset.riskFilter){riskFilter=b.dataset.riskFilter;renderLibrary();return;}
     if(b.dataset.risk){showRisk(b.dataset.risk);return;}
     if(b.dataset.sql){showSql(b.dataset.sql);return;}
     if(b.dataset.evidence){showEvidence(b.dataset.evidence);return;}
     if(b.dataset.event!==undefined){showEvent(Number(b.dataset.event));return;}
     if(b.dataset.action!==undefined){showAction(Number(b.dataset.action));return;}
+    if(b.dataset.finding){showFinding(b.dataset.finding);return;}
+    if(b.dataset.review){showReview(b.dataset.review);return;}
     if(b.dataset.p){openLibrary('riesgos',{p:Number(b.dataset.p),i:Number(b.dataset.i)});}
   });
   function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>$('toast').hidden=true,4000);}
