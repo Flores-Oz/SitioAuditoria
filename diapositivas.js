@@ -129,5 +129,30 @@
       s.focus='Los cinco puntajes de esta versión coinciden con sus riesgos. Hay tres observaciones sustentadas en el resumen y dos no concluyentes. La revisión cruzada y los originales continúan pendientes.';
     }
   });
+  // Fuentes vigentes al 10/11: se conservan las 28 pantallas y su contenido.
+  const currentSource={
+    hipotesis:'Informe_Final_Operacion_Trazabilidad.docx (2).pdf y Matrices_Operacion_Trazabilidad.xlsx · Explicaciones por contrastar.',
+    custodia:'Inventario_Cadena_Custodia_E01_E10_Integrante3_ACTUALIZADO.pdf y Papeles_Trabajo_PT01_PT10_Integrante3_ACTUALIZADO.pdf · Originales pendientes.',
+    fronteras:'Paso9_TPRM_Privacidad_IA_ACTUALIZADO.pdf y Matriz_Referencias_Normativas_Paso9_ACTUALIZADA.pdf · Evaluación documental.',
+    'uso-ia':'Registro_Uso_IA_Operacion_Trazabilidad_ACTUALIZADO.pdf · p. 1, declaraciones de Oscar, Pasos 3, 7, 8 y 10.',
+    hallazgos:'Hallazgos_Operacion_Trazabilidad.docx vigente · H-01 a H-05, pendientes de revisión cruzada.',
+    laboratorio:'Matriz SQL XLSM y Verificacion_Resultados.json · Ejecución previa documentada, sin nueva ejecución SQL Server.'
+  };
+  slides.forEach(s=>{if(currentSource[s.id])s.source=currentSource[s.id];});
+  const defense=slides.find(s=>s.id==='defensa');
+  defense.classes+=' defense-hub';
+  defense.html=defense.html.replace(B('Abrir el expediente','documentos'),B('Preguntas del docente','defensa')+B('Recorrer la trazabilidad','trazabilidad')+B('Consultar hallazgos','hallazgos')+B('Abrir el expediente','documentos'));
+  defense.focus='Abrir Preguntas del docente para buscar entre diez respuestas y acceder al soporte. Trazabilidad conecta riesgos, T, SQL, evidencia, PT y hallazgos. Cerrar las consultas conserva la diapositiva y el punto actual.';
+  const custody=slides.find(s=>s.id==='custodia');
+  custody.html=custody.html.replace(B('Consultar inventario y documentos','evidencias'),B('Consultar inventario y documentos','evidencias')+B('Ver matriz de trazabilidad','trazabilidad'));
+  const consistency=slides.find(s=>s.id==='coherencia');
+  consistency.html=consistency.html.replace('08 NOVIEMBRE 2026','10 NOVIEMBRE 2026').replace('Doce acciones y registro individual de Marlon. Revisión cruzada y comité pendientes.','Doce acciones y registro de IA del equipo. Revisión cruzada y comité pendientes.').replace('Doce acciones y registro individual de Oscar. Revisión cruzada y comité pendientes.','Doce acciones y registro de IA del equipo. Revisión cruzada y comité pendientes.');
+  consistency.source='Revisión del 10/11/2026 · Informe integrado de 14 páginas y PDF/JSON vigentes; notas históricas conservadas.';
+  consistency.focus='Ya existe informe integrado. El control de calidad cita otro nombre y 13 páginas: el PDF disponible tiene 14. Hay JSON SQL e índice PT sincronizado; no hubo nueva ejecución SQL Server. La matriz normativa aún omite SP 800-53.';
+  const pending=slides.find(s=>s.id==='pendientes');
+  pending.html=pending.html.replace('Integrar el informe; revisar plan, declaración de IA y registros del equipo.','Cotejar informe integrado, plan, registro de IA y revisión cruzada.');
+  ['primeras-senales','respuesta'].forEach(id=>{const s=slides.find(s=>s.id===id);s.html=s.html.replaceAll('<div class="reveal event-card"','<div class="reveal event-card"').replaceAll('</h3><p>','</h3><span class="status-badge recorded">Evento reportado · original pendiente</span><p>');});
+  const hypotheses=slides.find(s=>s.id==='hipotesis');
+  hypotheses.focus+=' Para contrastar H1 se requieren logs VPN/IdP, sesiones y red con contenido/destino; para H2 ticket, commits, artefacto, CI/CD, rollback y correlación con la indisponibilidad. La existencia de eventos anteriores impide atribuir todo al despliegue.';
   window.DIAPOSITIVAS=slides;
 })();

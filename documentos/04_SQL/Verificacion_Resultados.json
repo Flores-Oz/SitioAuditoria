@@ -1,0 +1,234 @@
+﻿{
+    "FechaUTC":  "2026-11-05T05:36:06.3714840Z",
+    "Servidor":  [
+                     {
+                         "Version":  "16.0.4305.5",
+                         "Edicion":  "Developer Edition (64-bit)"
+                     }
+                 ],
+    "Base":  "OperacionTrazabilidad_Lab",
+    "HashSQL":  "5E7AC7C651866C58777B2F025B174F43B577267C04DB236C826A0D4B4CCC7C3F",
+    "Volumen":  [
+                    {
+                        "Ordenes":  216,
+                        "Historial":  216
+                    }
+                ],
+    "Pruebas":  [
+                    {
+                        "Codigo":  "SQL-01",
+                        "Evidencia":  "E-01",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "Usuario":  "usr_baja_01",
+                                          "FechaBaja":  "2026-09-30",
+                                          "Activo":  1
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-02",
+                        "Evidencia":  "E-01",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "Usuario":  "admin_ops_comp",
+                                          "Recurso":  "CRM",
+                                          "Nivel":  "ADMINISTRADOR"
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-03",
+                        "Evidencia":  "E-02",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "Usuario":  "ext_ops_04",
+                                          "FechaInicio":  "2026-10-14 02:17:00",
+                                          "TipoAcceso":  "VPN",
+                                          "MfaUsado":  0,
+                                          "IpOrigen":  "198.51.100.24"
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-04",
+                        "Evidencia":  "E-03",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "FechaHora":  "2026-10-14 02:31:00",
+                                          "Objeto":  "dbo.Clientes",
+                                          "FilasLeidas":  31840,
+                                          "Origen":  "RESUMEN_CASO_NO_AUTENTICADO",
+                                          "UsuarioId":  null,
+                                          "SesionId":  null
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-05",
+                        "Evidencia":  "E-05",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "Minuto":  "2026-10-14 02:42",
+                                          "TotalCambios":  216,
+                                          "OrdenesDistintas":  216
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-06",
+                        "Evidencia":  "E-06",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "CambioId":  1,
+                                          "FechaHora":  "2026-10-14 03:02:00",
+                                          "Sistema":  "Servicio de integracion",
+                                          "Version":  "v2.6.1",
+                                          "Ticket":  "CAMBIO-2410",
+                                          "AprobacionFormal":  null
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-07",
+                        "Evidencia":  "E-07",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "AlertaId":  1,
+                                          "FechaHora":  "2026-10-14 03:18:00",
+                                          "Severidad":  "CRITICA",
+                                          "Estado":  "ABIERTA",
+                                          "FechaCierre":  null
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-08",
+                        "Evidencia":  "E-08",
+                        "Esperadas":  2,
+                        "Obtenidas":  2,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "Sistema":  "CRM",
+                                          "UltimoBackup":  "2026-10-14 01:00:00",
+                                          "IntegridadMinima":  0,
+                                          "RestauracionMinima":  0,
+                                          "UltimaRestauracion":  "2026-06-01 10:00:00"
+                                      },
+                                      {
+                                          "Sistema":  "SQL_SERVER",
+                                          "UltimoBackup":  "2026-10-13 01:00:00",
+                                          "IntegridadMinima":  0,
+                                          "RestauracionMinima":  0,
+                                          "UltimaRestauracion":  "2026-06-01 10:00:00"
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-09",
+                        "Evidencia":  "E-04",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "TransferenciaId":  1,
+                                          "FechaHora":  "2026-10-14 02:35:00",
+                                          "BytesTransferidos":  1600000000,
+                                          "Destino":  "DESTINO_NO_CLASIFICADO",
+                                          "ClasificacionContenido":  null,
+                                          "EstadoAutorizacion":  "NO_VERIFICADA",
+                                          "SesionId":  null
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-10",
+                        "Evidencia":  "E-05",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "Codigo":  "RN-20261014-0215",
+                                          "Duplicados":  2
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-11",
+                        "Evidencia":  "E-02",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "Usuario":  "ext_ops_04",
+                                          "FechaInicio":  "2026-10-14 02:17:00",
+                                          "TipoAcceso":  "VPN"
+                                      }
+                                  ]
+                    },
+                    {
+                        "Codigo":  "SQL-12",
+                        "Evidencia":  "E-08",
+                        "Esperadas":  1,
+                        "Obtenidas":  1,
+                        "CoincideJSON":  true,
+                        "CoincideCSV":  true,
+                        "Correcta":  true,
+                        "Datos":  [
+                                      {
+                                          "Sistema":  "SQL_SERVER",
+                                          "BackupAnterior":  "2026-10-12 00:00:00",
+                                          "FechaBackup":  "2026-10-13 01:00:00",
+                                          "HorasEntreBackups":  25
+                                      }
+                                  ]
+                    }
+                ]
+}

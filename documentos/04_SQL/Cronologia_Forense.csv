@@ -1,0 +1,14 @@
+﻿FechaHora_UCT_menos_6,Evento_resumen_del_caso,Fuente_a_solicitar,Limitacion
+2026-10-12 16:15,Solicitud renovación de acceso API,Ticket proveedor,Requerir autorización original
+2026-10-14 02:17,Sesión ext_ops_04 sin MFA,VPN / E-02,Correlación de ID de sesión
+2026-10-14 02:26,Elevación privilegios,IAM / IdP,Actor no atribuido
+2026-10-14 02:31,"Lectura 31,840 filas SQL Server",Auditoría SQL / E-03,"Objeto, usuario, sesión pendientes"
+2026-10-14 02:35,Transferencia externa ~1.6 GB,Red/proxy / E-04,No determina exfiltración
+2026-10-14 02:42,216 órdenes modificadas,CRM / E-05,No determina autoría
+2026-10-14 03:02,Despliegue integración,CI/CD / E-06,Aprobación escrita pendiente
+2026-10-14 03:18,Alerta crítica,SIEM / E-07,Cierre sin documentar
+2026-10-14 03:42,CRM indisponible; archivos aparentemente cifrados,CRM / EDR,Sin confirmación forense de malware
+2026-10-14 04:05,TI solicita recuperación,Equipo continuidad,Actas y operación pendientes
+2026-10-14 08:57,CRM vuelve solo consulta,CRM,5h15 desde caída
+2026-10-14 09:37,CRM restablece escritura,CRM,5h55 desde caída
+2026-10-14 11:15,Finanzas solicita conciliación,Finanzas/ERP,No consta conciliación completada

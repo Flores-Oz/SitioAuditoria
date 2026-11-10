@@ -1,0 +1,568 @@
+{
+  "FechaUTC": "2026-11-09T02:30:40.707683+00:00",
+  "FechaGuatemala": "2026-11-08T20:30:40.707683-06:00",
+  "Algoritmo": "SHA-256",
+  "Correcta": true,
+  "NuevaEjecucionSQLServer": false,
+  "MotivoSinNuevaEjecucion": "Instancia local SQL Server no disponible al preparar el paquete.",
+  "FechaEjecucionSQLConservadaUTC": "2026-11-05T05:36:06.3714840Z",
+  "HashSQL": "5e7ac7c651866c58777b2f025b174f43b577267c04db236c826a0d4b4ccc7c3f",
+  "Manifiesto": "MANIFIESTO_SHA256.csv",
+  "AlcanceManifiesto": "Todos los archivos del paquete salvo el manifiesto mismo; incluye este JSON.",
+  "AlcanceInventarioJSON": "Archivos de contenido; excluye este JSON y el manifiesto para evitar autorreferencia.",
+  "ManifiestosFuente": [
+    {
+      "Origen": "_MANIFIESTO_SHA256.csv",
+      "SHA256": "44d50549c5331a492a2fdcbe3a14ee904f0ad83126977fb467a8f975249252d5",
+      "ArchivosVerificados": 41,
+      "CoincidenTodos": true
+    },
+    {
+      "Origen": "02_SQL/Entrega_SQL_Verificada/MANIFIESTO_SHA256.csv",
+      "SHA256": "804abcecd0769b3ae46fe51dad471a30a79ca00c16a2c8474e2187b22582cecc",
+      "ArchivosVerificados": 52,
+      "CoincidenTodos": true
+    }
+  ],
+  "CopiasVerificadas": [
+    {
+      "Archivo": "Analisis_Auditoria.sql",
+      "Origen": "02_SQL/Analisis_Auditoria.sql",
+      "SHA256_Origen": "5e7ac7c651866c58777b2f025b174f43b577267c04db236c826a0d4b4ccc7c3f",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resumen_Resultados.json",
+      "Origen": "02_SQL/Resumen_Resultados.json",
+      "SHA256_Origen": "f56011d352a37a150bc5050ac56de43cb11a27445bed8ee70bd06ebc42bd23a8",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Verificacion_Resultados.json",
+      "Origen": "02_SQL/Verificacion_Resultados.json",
+      "SHA256_Origen": "8e5b61e4f2a2f1b9e0e2a707fd2f6d58111aed589a55e5ccf6c9bdf52edd6b17",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Verificar_Pruebas.ps1",
+      "Origen": "02_SQL/Verificar_Pruebas.ps1",
+      "SHA256_Origen": "4a4d188136f7812885cae43d0a12a6f4e5b63bb6b6a1d580f682c39bd8c63053",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "verificar_referencias.py",
+      "Origen": "02_SQL/verificar_referencias.py",
+      "SHA256_Origen": "6770b00926a12db794bfde6c3b2b968685384f08c5e4ff3059718fb1a6c977a0",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Matriz_Resultados_y_Trazabilidad.xlsx",
+      "Origen": "02_SQL/Matriz_Resultados_y_Trazabilidad.xlsx",
+      "SHA256_Origen": "5a6010cef6e458d9919fa5d7518df36603fed5aeca31c7620247a1a6eaa0a75d",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-01_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-01_ejecutado.csv",
+      "SHA256_Origen": "56caa83da514169e22419e54875395067e3d2ae238e530a489fa3def9e8bcfdc",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-02_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-02_ejecutado.csv",
+      "SHA256_Origen": "5ed43e15da5f38449dc8c25935d4034638d377f53f1f323b80a70dc07ecac02c",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-03_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-03_ejecutado.csv",
+      "SHA256_Origen": "6f547452ff224c1ffb77af89754a22be0e1f4255c811b0dc405c6c6b62100db4",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-04_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-04_ejecutado.csv",
+      "SHA256_Origen": "c710e052fd329e05c467c5484c7a153a24f61941668315b6c0c514dd5563a2f4",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-05_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-05_ejecutado.csv",
+      "SHA256_Origen": "f42587cdd669e74fe266eee409e2b3ac286753bb7931a1038685a16721f75e19",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-06_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-06_ejecutado.csv",
+      "SHA256_Origen": "59ccc601aaa57ae66e62181192d0ce63c0c9b9de461fe3f5060e051283b8de1e",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-07_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-07_ejecutado.csv",
+      "SHA256_Origen": "14684bf93d4c9ad7c873c9b630e0181bfe3e650fe916dde5ad13bf1d63456d9d",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-08_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-08_ejecutado.csv",
+      "SHA256_Origen": "a1d220e5984f8877a4b418e592040486dd2c205fe08cd4d56d9d739c481aabf9",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-09_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-09_ejecutado.csv",
+      "SHA256_Origen": "47421ae73c81990a0ec5f00260cb87677f94815ff599d417976715e6f8ddcb7c",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-10_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-10_ejecutado.csv",
+      "SHA256_Origen": "2140295e3ff879df9a8f36e603be3f8c4ed69d6688aec625a330559ca29c6b24",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-11_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-11_ejecutado.csv",
+      "SHA256_Origen": "e3e2c549da6e23f4e36519a61533966818ccdd7ca1af5e5ee1bd8a692349caa8",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "SQL-12_ejecutado.csv",
+      "Origen": "02_SQL/Entrega_SQL_Verificada/Evidencias_SQLServer/SQL-12_ejecutado.csv",
+      "SHA256_Origen": "32b5057d529400db46466277252bd62420366c8be823e7564a7aee81953ce28a",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-01_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-01_resultado.csv",
+      "SHA256_Origen": "56caa83da514169e22419e54875395067e3d2ae238e530a489fa3def9e8bcfdc",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-02_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-02_resultado.csv",
+      "SHA256_Origen": "5ed43e15da5f38449dc8c25935d4034638d377f53f1f323b80a70dc07ecac02c",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-03_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-03_resultado.csv",
+      "SHA256_Origen": "6f547452ff224c1ffb77af89754a22be0e1f4255c811b0dc405c6c6b62100db4",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-04_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-04_resultado.csv",
+      "SHA256_Origen": "c710e052fd329e05c467c5484c7a153a24f61941668315b6c0c514dd5563a2f4",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-05_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-05_resultado.csv",
+      "SHA256_Origen": "f42587cdd669e74fe266eee409e2b3ac286753bb7931a1038685a16721f75e19",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-06_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-06_resultado.csv",
+      "SHA256_Origen": "59ccc601aaa57ae66e62181192d0ce63c0c9b9de461fe3f5060e051283b8de1e",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-07_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-07_resultado.csv",
+      "SHA256_Origen": "14684bf93d4c9ad7c873c9b630e0181bfe3e650fe916dde5ad13bf1d63456d9d",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-08_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-08_resultado.csv",
+      "SHA256_Origen": "a1d220e5984f8877a4b418e592040486dd2c205fe08cd4d56d9d739c481aabf9",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-09_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-09_resultado.csv",
+      "SHA256_Origen": "47421ae73c81990a0ec5f00260cb87677f94815ff599d417976715e6f8ddcb7c",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-10_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-10_resultado.csv",
+      "SHA256_Origen": "2140295e3ff879df9a8f36e603be3f8c4ed69d6688aec625a330559ca29c6b24",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-11_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-11_resultado.csv",
+      "SHA256_Origen": "e3e2c549da6e23f4e36519a61533966818ccdd7ca1af5e5ee1bd8a692349caa8",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-12_resultado.csv",
+      "Origen": "02_SQL/Resultados_CSV/SQL-12_resultado.csv",
+      "SHA256_Origen": "32b5057d529400db46466277252bd62420366c8be823e7564a7aee81953ce28a",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Cronologia_Forense.csv",
+      "Origen": "03_Forense/Cronologia_Forense.csv",
+      "SHA256_Origen": "5b04e435089f23828f16220c4c9d3cd1fdc5625959a791076e3c11e9ac03d276",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "verificar_integridad.py",
+      "Origen": "02_SQL/verificar_integridad_soportes.py",
+      "SHA256_Origen": "21bd7b086591f0d2e4b5c2ba3fcd4ea90b14b6e354c55b9bf048c4234c149e86",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.pdf",
+      "Origen": "02_SQL/Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.pdf",
+      "SHA256_Origen": "783a1997f04e29a1933890dbb75184a72caa69dee4cfe0ea6443fbaafc1c7af9",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.png",
+      "Origen": "02_SQL/Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.png",
+      "SHA256_Origen": "14a0ecf84a37ff0c7d292b24dd29bd623d101211262ce14695f3bba8df174672",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.svg",
+      "Origen": "02_SQL/Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.svg",
+      "SHA256_Origen": "616c78d8ffb9d59995a6e04202cb74d89f83f84b6cb5ed62c5e1599364748044",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.dot",
+      "Origen": "02_SQL/Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.dot",
+      "SHA256_Origen": "bb8324f4c508b44eda09091bfa52f734108c6b6e08d7c04eb218be48d33f3b0f",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.json",
+      "Origen": "02_SQL/Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.json",
+      "SHA256_Origen": "67fd1fd065fb9340d3e7d83303e0a5fa2cc1dcf8dfe465d1d198933fbfbd37df",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Verificacion_Modelo_ER.json",
+      "Origen": "02_SQL/Modelo_Entidad_Relacion/Verificacion_Modelo_ER.json",
+      "SHA256_Origen": "5339a37300b3e7c6659a1117ae59372a8aeeb155da8c12df57a03cf7d0b333ed",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/LEEME_MODELO_ER.md",
+      "Origen": "02_SQL/Modelo_Entidad_Relacion/LEEME_MODELO_ER.md",
+      "SHA256_Origen": "28c932d85b06dc4d41e7031ad755ff9f8e72598b1c85832a080855f2a2305c59",
+      "CoincideConOrigen": true
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/generar_modelo_er.py",
+      "Origen": "02_SQL/Modelo_Entidad_Relacion/generar_modelo_er.py",
+      "SHA256_Origen": "2b43b1c268129835ed9155fc85e53ed70af95951d30ebdf8f696df6c3c041988",
+      "CoincideConOrigen": true
+    }
+  ],
+  "ModeloEntidadRelacion": {
+    "Correcto": true,
+    "Tablas": 12,
+    "Campos": 83,
+    "ClavesPrimarias": 12,
+    "ClavesForaneas": 9,
+    "FKObligatorias": 3,
+    "FKOpcionales": 6,
+    "HashSQL": "5e7ac7c651866c58777b2f025b174f43b577267c04db236c826a0d4b4ccc7c3f",
+    "Verificacion": "Modelo_Entidad_Relacion/Verificacion_Modelo_ER.json"
+  },
+  "ComparacionesResultados": [
+    {
+      "Codigo": "SQL-01",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-02",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-03",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-04",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-05",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-06",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-07",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-08",
+      "Filas": 2,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-09",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-10",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-11",
+      "Filas": 1,
+      "Coincide": true
+    },
+    {
+      "Codigo": "SQL-12",
+      "Filas": 1,
+      "Coincide": true
+    }
+  ],
+  "CriterioComparacion": "Sin orden de filas; conserva duplicados. JSON conserva tipos y NULL; CSV usa celda vacia para NULL.",
+  "Cronologia": {
+    "Filas": 13,
+    "FechasCoincidenConMatriz": true,
+    "MinutosHastaSoloLectura": 315,
+    "MinutosHastaEscritura": 355,
+    "AutenticadaForensemente": false
+  },
+  "ComprobacionComplementaria": {
+    "Motor": "SQLite en memoria con adaptaciones explicitas; no valida T-SQL",
+    "FechaUTC": "2026-11-09T02:30:40.678562+00:00",
+    "ConsultasCorrectas": 12,
+    "CodigoSalida": 0
+  },
+  "Archivos": [
+    {
+      "Archivo": "Analisis_Auditoria.sql",
+      "SHA256": "5e7ac7c651866c58777b2f025b174f43b577267c04db236c826a0d4b4ccc7c3f",
+      "Bytes": 51619
+    },
+    {
+      "Archivo": "Cronologia_Forense.csv",
+      "SHA256": "5b04e435089f23828f16220c4c9d3cd1fdc5625959a791076e3c11e9ac03d276",
+      "Bytes": 1208
+    },
+    {
+      "Archivo": "LEEME_SOPORTES.md",
+      "SHA256": "2bdf84fe3868dd662ae2007e1ba23d170d1da7f8c71f9fde5b25d28dde8e1ab2",
+      "Bytes": 4540
+    },
+    {
+      "Archivo": "Matriz_Resultados_y_Trazabilidad.xlsx",
+      "SHA256": "5a6010cef6e458d9919fa5d7518df36603fed5aeca31c7620247a1a6eaa0a75d",
+      "Bytes": 8822
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/generar_modelo_er.py",
+      "SHA256": "2b43b1c268129835ed9155fc85e53ed70af95951d30ebdf8f696df6c3c041988",
+      "Bytes": 22193
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/LEEME_MODELO_ER.md",
+      "SHA256": "28c932d85b06dc4d41e7031ad755ff9f8e72598b1c85832a080855f2a2305c59",
+      "Bytes": 2217
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.dot",
+      "SHA256": "bb8324f4c508b44eda09091bfa52f734108c6b6e08d7c04eb218be48d33f3b0f",
+      "Bytes": 12242
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.json",
+      "SHA256": "67fd1fd065fb9340d3e7d83303e0a5fa2cc1dcf8dfe465d1d198933fbfbd37df",
+      "Bytes": 18095
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.pdf",
+      "SHA256": "783a1997f04e29a1933890dbb75184a72caa69dee4cfe0ea6443fbaafc1c7af9",
+      "Bytes": 53170
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.png",
+      "SHA256": "14a0ecf84a37ff0c7d292b24dd29bd623d101211262ce14695f3bba8df174672",
+      "Bytes": 399914
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Modelo_Entidad_Relacion.svg",
+      "SHA256": "616c78d8ffb9d59995a6e04202cb74d89f83f84b6cb5ed62c5e1599364748044",
+      "Bytes": 65503
+    },
+    {
+      "Archivo": "Modelo_Entidad_Relacion/Verificacion_Modelo_ER.json",
+      "SHA256": "5339a37300b3e7c6659a1117ae59372a8aeeb155da8c12df57a03cf7d0b333ed",
+      "Bytes": 4791
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-01_resultado.csv",
+      "SHA256": "56caa83da514169e22419e54875395067e3d2ae238e530a489fa3def9e8bcfdc",
+      "Bytes": 55
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-02_resultado.csv",
+      "SHA256": "5ed43e15da5f38449dc8c25935d4034638d377f53f1f323b80a70dc07ecac02c",
+      "Bytes": 60
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-03_resultado.csv",
+      "SHA256": "6f547452ff224c1ffb77af89754a22be0e1f4255c811b0dc405c6c6b62100db4",
+      "Bytes": 105
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-04_resultado.csv",
+      "SHA256": "c710e052fd329e05c467c5484c7a153a24f61941668315b6c0c514dd5563a2f4",
+      "Bytes": 129
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-05_resultado.csv",
+      "SHA256": "f42587cdd669e74fe266eee409e2b3ac286753bb7931a1038685a16721f75e19",
+      "Bytes": 67
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-06_resultado.csv",
+      "SHA256": "59ccc601aaa57ae66e62181192d0ce63c0c9b9de461fe3f5060e051283b8de1e",
+      "Bytes": 130
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-07_resultado.csv",
+      "SHA256": "14684bf93d4c9ad7c873c9b630e0181bfe3e650fe916dde5ad13bf1d63456d9d",
+      "Bytes": 92
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-08_resultado.csv",
+      "SHA256": "a1d220e5984f8877a4b418e592040486dd2c205fe08cd4d56d9d739c481aabf9",
+      "Bytes": 185
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-09_resultado.csv",
+      "SHA256": "47421ae73c81990a0ec5f00260cb87677f94815ff599d417976715e6f8ddcb7c",
+      "Bytes": 180
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-10_resultado.csv",
+      "SHA256": "2140295e3ff879df9a8f36e603be3f8c4ed69d6688aec625a330559ca29c6b24",
+      "Bytes": 42
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-11_resultado.csv",
+      "SHA256": "e3e2c549da6e23f4e36519a61533966818ccdd7ca1af5e5ee1bd8a692349caa8",
+      "Bytes": 71
+    },
+    {
+      "Archivo": "Resultados_CSV/SQL-12_resultado.csv",
+      "SHA256": "32b5057d529400db46466277252bd62420366c8be823e7564a7aee81953ce28a",
+      "Bytes": 112
+    },
+    {
+      "Archivo": "Resumen_Resultados.json",
+      "SHA256": "f56011d352a37a150bc5050ac56de43cb11a27445bed8ee70bd06ebc42bd23a8",
+      "Bytes": 5349
+    },
+    {
+      "Archivo": "SQL-01_ejecutado.csv",
+      "SHA256": "56caa83da514169e22419e54875395067e3d2ae238e530a489fa3def9e8bcfdc",
+      "Bytes": 55
+    },
+    {
+      "Archivo": "SQL-02_ejecutado.csv",
+      "SHA256": "5ed43e15da5f38449dc8c25935d4034638d377f53f1f323b80a70dc07ecac02c",
+      "Bytes": 60
+    },
+    {
+      "Archivo": "SQL-03_ejecutado.csv",
+      "SHA256": "6f547452ff224c1ffb77af89754a22be0e1f4255c811b0dc405c6c6b62100db4",
+      "Bytes": 105
+    },
+    {
+      "Archivo": "SQL-04_ejecutado.csv",
+      "SHA256": "c710e052fd329e05c467c5484c7a153a24f61941668315b6c0c514dd5563a2f4",
+      "Bytes": 129
+    },
+    {
+      "Archivo": "SQL-05_ejecutado.csv",
+      "SHA256": "f42587cdd669e74fe266eee409e2b3ac286753bb7931a1038685a16721f75e19",
+      "Bytes": 67
+    },
+    {
+      "Archivo": "SQL-06_ejecutado.csv",
+      "SHA256": "59ccc601aaa57ae66e62181192d0ce63c0c9b9de461fe3f5060e051283b8de1e",
+      "Bytes": 130
+    },
+    {
+      "Archivo": "SQL-07_ejecutado.csv",
+      "SHA256": "14684bf93d4c9ad7c873c9b630e0181bfe3e650fe916dde5ad13bf1d63456d9d",
+      "Bytes": 92
+    },
+    {
+      "Archivo": "SQL-08_ejecutado.csv",
+      "SHA256": "a1d220e5984f8877a4b418e592040486dd2c205fe08cd4d56d9d739c481aabf9",
+      "Bytes": 185
+    },
+    {
+      "Archivo": "SQL-09_ejecutado.csv",
+      "SHA256": "47421ae73c81990a0ec5f00260cb87677f94815ff599d417976715e6f8ddcb7c",
+      "Bytes": 180
+    },
+    {
+      "Archivo": "SQL-10_ejecutado.csv",
+      "SHA256": "2140295e3ff879df9a8f36e603be3f8c4ed69d6688aec625a330559ca29c6b24",
+      "Bytes": 42
+    },
+    {
+      "Archivo": "SQL-11_ejecutado.csv",
+      "SHA256": "e3e2c549da6e23f4e36519a61533966818ccdd7ca1af5e5ee1bd8a692349caa8",
+      "Bytes": 71
+    },
+    {
+      "Archivo": "SQL-12_ejecutado.csv",
+      "SHA256": "32b5057d529400db46466277252bd62420366c8be823e7564a7aee81953ce28a",
+      "Bytes": 112
+    },
+    {
+      "Archivo": "Verificacion_Referencias.json",
+      "SHA256": "bf9281fb347419cbb3b7aca9ef72caf2adfc1e4382a426ad74307dbbfff6d8db",
+      "Bytes": 4133
+    },
+    {
+      "Archivo": "Verificacion_Resultados.json",
+      "SHA256": "8e5b61e4f2a2f1b9e0e2a707fd2f6d58111aed589a55e5ccf6c9bdf52edd6b17",
+      "Bytes": 10976
+    },
+    {
+      "Archivo": "verificar_integridad.py",
+      "SHA256": "21bd7b086591f0d2e4b5c2ba3fcd4ea90b14b6e354c55b9bf048c4234c149e86",
+      "Bytes": 2546
+    },
+    {
+      "Archivo": "Verificar_Pruebas.ps1",
+      "SHA256": "4a4d188136f7812885cae43d0a12a6f4e5b63bb6b6a1d580f682c39bd8c63053",
+      "Bytes": 5080
+    },
+    {
+      "Archivo": "verificar_referencias.py",
+      "SHA256": "6770b00926a12db794bfde6c3b2b968685384f08c5e4ff3059718fb1a6c977a0",
+      "Bytes": 3258
+    }
+  ]
+}

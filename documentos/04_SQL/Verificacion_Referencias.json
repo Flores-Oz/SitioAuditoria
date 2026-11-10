@@ -1,0 +1,178 @@
+{
+  "fecha_utc": "2026-11-09T02:30:40.678562+00:00",
+  "motor": "SQLite en memoria con adaptaciones explicitas; no valida T-SQL",
+  "hash_sql": "5e7ac7c651866c58777b2f025b174f43b577267c04db236c826a0d4b4ccc7c3f",
+  "volumen": {
+    "Ordenes": 216,
+    "HistorialOrdenes": 216
+  },
+  "pruebas": [
+    {
+      "codigo": "SQL-01",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "Usuario": "usr_baja_01",
+          "FechaBaja": "2026-09-30",
+          "Activo": 1
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-02",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "Usuario": "admin_ops_comp",
+          "Recurso": "CRM",
+          "Nivel": "ADMINISTRADOR"
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-03",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "Usuario": "ext_ops_04",
+          "FechaInicio": "2026-10-14 02:17:00",
+          "TipoAcceso": "VPN",
+          "MfaUsado": 0,
+          "IpOrigen": "198.51.100.24"
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-04",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "FechaHora": "2026-10-14 02:31:00",
+          "Objeto": "dbo.Clientes",
+          "FilasLeidas": 31840,
+          "Origen": "RESUMEN_CASO_NO_AUTENTICADO",
+          "UsuarioId": null,
+          "SesionId": null
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-05",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "Minuto": "2026-10-14 02:42",
+          "TotalCambios": 216,
+          "OrdenesDistintas": 216
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-06",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "CambioId": 1,
+          "FechaHora": "2026-10-14 03:02:00",
+          "Sistema": "Servicio de integracion",
+          "Version": "v2.6.1",
+          "Ticket": "CAMBIO-2410",
+          "AprobacionFormal": null
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-07",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "AlertaId": 1,
+          "FechaHora": "2026-10-14 03:18:00",
+          "Severidad": "CRITICA",
+          "Estado": "ABIERTA",
+          "FechaCierre": null
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-08",
+      "filas": 2,
+      "correcta": true,
+      "datos": [
+        {
+          "Sistema": "CRM",
+          "UltimoBackup": "2026-10-14 01:00:00",
+          "IntegridadMinima": 0,
+          "RestauracionMinima": 0,
+          "UltimaRestauracion": "2026-06-01 10:00:00"
+        },
+        {
+          "Sistema": "SQL_SERVER",
+          "UltimoBackup": "2026-10-13 01:00:00",
+          "IntegridadMinima": 0,
+          "RestauracionMinima": 0,
+          "UltimaRestauracion": "2026-06-01 10:00:00"
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-09",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "TransferenciaId": 1,
+          "FechaHora": "2026-10-14 02:35:00",
+          "BytesTransferidos": 1600000000,
+          "Destino": "DESTINO_NO_CLASIFICADO",
+          "ClasificacionContenido": null,
+          "EstadoAutorizacion": "NO_VERIFICADA",
+          "SesionId": null
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-10",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "Codigo": "RN-20261014-0215",
+          "Duplicados": 2
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-11",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "Usuario": "ext_ops_04",
+          "FechaInicio": "2026-10-14 02:17:00",
+          "TipoAcceso": "VPN"
+        }
+      ]
+    },
+    {
+      "codigo": "SQL-12",
+      "filas": 1,
+      "correcta": true,
+      "datos": [
+        {
+          "Sistema": "SQL_SERVER",
+          "BackupAnterior": "2026-10-12 00:00:00",
+          "FechaBackup": "2026-10-13 01:00:00",
+          "HorasEntreBackups": 25
+        }
+      ]
+    }
+  ]
+}
